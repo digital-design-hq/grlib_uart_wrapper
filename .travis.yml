@@ -1,0 +1,25 @@
+env:
+  global:
+    - IMG2=ghdl/synth:formal
+    - BUILDSCRIPT=synth.bash
+    - UPLOADSCRIPT=upload.bash
+    - WORKDIR=/mnt/data
+
+services:
+  - docker
+
+before_install:
+  - docker pull $IMG2
+
+script:
+  - >
+    docker run -t -v `pwd`:$WORKDIR $IMG2
+    /bin/bash -c "cd $WORKDIR; bash $WORKDIR/$BUILDSCRIPT"
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: bash ./$UPLOADSCRIPT
+  on:
+    branch: init_code
+

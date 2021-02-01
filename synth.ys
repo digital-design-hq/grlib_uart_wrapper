@@ -1,0 +1,4 @@
+ghdl uart
+proc
+opt -full
+write_verilog uart.v

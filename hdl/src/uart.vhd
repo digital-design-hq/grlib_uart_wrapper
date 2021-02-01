@@ -1,5 +1,5 @@
 -- this block detects baudrate. send 0x55 or 0xAA after reset to let it catch baudrate
--- all symbols are discarded untill the baudrate is detected (lock goes high when this happens)
+-- all symbols are discarded until the baudrate is detected (lock goes high when this happens)
 library ieee;
 use ieee.std_logic_1164.all;
 library grlib;
@@ -8,7 +8,7 @@ library gaisler;
 use gaisler.libdcom.all;
 use gaisler.uart.all;
 
-entity grlib_uart_wrapper is
+entity uart is
     port (
         rst: in std_ulogic;
         clk: in std_ulogic;
@@ -32,18 +32,18 @@ entity grlib_uart_wrapper is
     );
 end entity; 
 
-architecture v1 of grlib_uart_wrapper is
+architecture v1 of uart is
 
     component dcom_uart 
         port (
-            rst    : in  std_ulogic;
-            clk    : in  std_ulogic;
-            ui     : in  uart_in_type;
-            uo     : out uart_out_type;
-            apbi   : in  apb_slv_in_type;
-            apbo   : out apb_slv_out_type;
-            uarti  : in  dcom_uart_in_type;
-            uarto  : out dcom_uart_out_type
+            rst: in std_ulogic;
+            clk: in std_ulogic;
+            ui: in uart_in_type;
+            uo: out uart_out_type;
+            apbi: in apb_slv_in_type;
+            apbo: out apb_slv_out_type;
+            uarti: in dcom_uart_in_type;
+            uarto: out dcom_uart_out_type
         );
     end component; 
 
