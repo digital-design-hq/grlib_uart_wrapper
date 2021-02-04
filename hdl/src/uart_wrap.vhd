@@ -8,7 +8,7 @@ library gaisler;
 use gaisler.libdcom.all;
 use gaisler.uart.all;
 
-entity uart is
+entity uart_wrap is
     port (
         rst: in std_ulogic;
         clk: in std_ulogic;
@@ -32,7 +32,7 @@ entity uart is
     );
 end entity; 
 
-architecture v1 of uart is
+architecture v1 of uart_wrap is
 
     component dcom_uart 
         port (

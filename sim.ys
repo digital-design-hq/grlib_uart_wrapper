@@ -1,0 +1,4 @@
+ghdl uart_wrap
+read_verilog hdl/src/echo.v
+read_verilog hdl/tb/tb.v
+sim -vcd ys.vcd -n 100 tb

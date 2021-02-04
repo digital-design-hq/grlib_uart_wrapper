@@ -1,4 +1,4 @@
-ghdl uart
+ghdl uart_wrap
 proc
 opt -full
-write_verilog uart.v
+write_verilog uart_wrap.v

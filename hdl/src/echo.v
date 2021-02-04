@@ -20,7 +20,7 @@ assign read = pump;
 
 assign pump = dready & txempty;
 
-uart uart_inst (
+uart_wrap uart_inst (
     .clk(clk),
     .rst(rst),
     .txd(txd),
@@ -34,5 +34,5 @@ uart uart_inst (
     .write(write)
 );
 
-endmodule;
+endmodule
 
